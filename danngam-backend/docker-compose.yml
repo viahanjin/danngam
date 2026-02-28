@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgis/postgis:15-3.4
+    container_name: danngam_postgres
+    environment:
+      POSTGRES_USER: danngam_user
+      POSTGRES_PASSWORD: danngam_password
+      POSTGRES_DB: danngam
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - danngam_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U danngam_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: danngam_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@danngam.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - danngam_network
+
+  fastapi:
+    build: .
+    container_name: danngam_fastapi
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      DATABASE_URL: postgresql://danngam_user:danngam_password@postgres:5432/danngam
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - danngam_network
+
+volumes:
+  postgres_data:
+
+networks:
+  danngam_network:
+    driver: bridge
