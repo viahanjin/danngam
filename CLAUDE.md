@@ -17,11 +17,11 @@
 
 Claude Code가 이 프로젝트에서 작업하기 전에 **반드시** 읽어야 할 문서:
 
-1. **docs/TODO.md** - 14개 핵심 기능 체크리스트
-2. **docs/API_SPECIFICATION.md** - 모든 API 엔드포인트 정의
-3. **docs/DATABASE_SCHEMA.md** - DB 테이블 구조 및 관계도
-4. **docs/DEVELOPMENT_CONVENTION.md** - 코딩 컨벤션 (현재 문서)
-5. **docs/DEVELOPMENT_SETUP.md** - Git Workflow, 로컬 환경 설정
+1. **docs/TODO.md** - 전체 개발 로드맵 및 체크리스트
+2. **docs/API_설계서.md** - 모든 API 엔드포인트 설계
+3. **docs/DATABASE_SCHEMA.md** (데이터_모델_설계.md) - DB 테이블 구조 및 관계도
+4. **docs/DEVELOPMENT_CONVENTION.md** - 코딩 컨벤션 및 폴더 구조
+5. **docs/개발_가이드.md** - Git Workflow, 로컬 환경 설정 (Flutter & Backend)
 
 ---
 
@@ -241,12 +241,12 @@ Closes #123
 작업 시 다음 순서로 문서 확인:
 
 1. **docs/TODO.md** - 작업할 기능 확인
-2. **docs/API_SPECIFICATION.md** - API 엔드포인트 정의 (백엔드)
-3. **docs/DATABASE_SCHEMA.md** - DB 스키마 확인
-4. **docs/DEVELOPMENT_CONVENTION.md** - 코딩 스타일
-5. **docs/TESTING_STRATEGY.md** - 테스트 작성 방법
-6. **docs/ERROR_HANDLING.md** - 에러 코드 정의
-7. **docs/SECURITY_CHECKLIST.md** - 보안 체크사항
+2. **docs/API_설계서.md** - API 엔드포인트 설계 (백엔드 개발 시)
+3. **docs/데이터_모델_설계.md** - DB 스키마 확인
+4. **docs/DEVELOPMENT_CONVENTION.md** - 코딩 스타일 및 폴더 구조
+5. **docs/개발_가이드.md** - 로컬 환경 셋업, 빌드 명령어
+6. **REPOSITORY_SETUP.md** - 레파지토리 구조 (참고용)
+7. **FLUTTER_SPRINT_PLAN.md** - Flutter 개발 로드맵 (모바일 개발 시)
 
 ---
 
